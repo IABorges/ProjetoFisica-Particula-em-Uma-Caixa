@@ -1,12 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-import PagInfo
-
-
+import control.Controle
 class JanelaCalculoProton(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
-
+        global valor1
         self.title("Confinando um Proton")
         self.geometry("800x800")
 
@@ -20,13 +18,15 @@ class JanelaCalculoProton(tk.Toplevel):
         self.entrada1 = tk.Entry(frameContas, width=20)
         self.entrada1.grid(row=0, column=1, padx=10, pady=10)
 
-        tk.Label(frameContas, text="Campo 2:", font=("Arial", 12)).grid(row=1, column=0, padx=10, pady=10)
-        self.entrada2 = tk.Entry(frameContas, width=20)
-        self.entrada2.grid(row=1, column=1, padx=10, pady=10)
+        tk.Label(frameContas,text="Agora voce precisa digitar o estado(n) da particula",font=("Arial",12)).grid(row=1,column=0,padx=10,pady=10)
 
-        tk.Label(frameContas, text="Campo 3:", font=("Arial", 12)).grid(row=2, column=0, padx=10, pady=10)
+        tk.Label(frameContas, text="Estado inicial:", font=("Arial", 12)).grid(row=2, column=0, padx=10, pady=10)
+        self.entrada2 = tk.Entry(frameContas, width=20)
+        self.entrada2.grid(row=2, column=1, padx=10, pady=10)
+
+        tk.Label(frameContas, text="Estado Final:", font=("Arial", 12)).grid(row=3, column=0, padx=10, pady=10)
         self.entrada3 = tk.Entry(frameContas, width=20)
-        self.entrada3.grid(row=2, column=1, padx=10, pady=10)
+        self.entrada3.grid(row=3, column=1, padx=10, pady=10)
 
         # Botão para realizar o cálculo
         btnCalcular = tk.Button(self, text="Calcular", command=self.calcular_proton)
@@ -37,7 +37,11 @@ class JanelaCalculoProton(tk.Toplevel):
         valor1 = self.entrada1.get()
         valor2 = self.entrada2.get()
         valor3 = self.entrada3.get()
+        # c.test()
 
-        # Simulação de cálculo simples (você pode modificar conforme necessário)
-        resultado = f"Valores inseridos: {valor1}, {valor2}, {valor3}"
-        messagebox.showinfo("Resultado", resultado)
+
+        # resultado = f"Valores inseridos: {valor1}, {valor2}, {valor3}"
+        # messagebox.showinfo("Resultado", resultado)
+    def getValor1():
+        return valor1
+        
