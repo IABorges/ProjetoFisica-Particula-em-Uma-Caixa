@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
-import PagInfo as pInfo
-import PagCalcProton as calcProton
+import view.PagInfo as pInfo
+import view.PagCalcProton as calcProton
 
 # Classe para a janela principal
 class JanelaInicio(tk.Tk):

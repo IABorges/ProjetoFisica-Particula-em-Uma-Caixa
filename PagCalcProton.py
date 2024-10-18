@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import control.Controle
+
 class JanelaCalculoProton(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
@@ -37,7 +37,6 @@ class JanelaCalculoProton(tk.Toplevel):
         valor1 = self.entrada1.get()
         valor2 = self.entrada2.get()
         valor3 = self.entrada3.get()
-        # c.test()
 
 
         # resultado = f"Valores inseridos: {valor1}, {valor2}, {valor3}"
