@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import messagebox
+import control.Controle as c
 
 class JanelaCalculoProton(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
-        global valor1
+        # global valor1
         self.title("Confinando um Proton")
         self.geometry("800x800")
 
@@ -37,10 +38,11 @@ class JanelaCalculoProton(tk.Toplevel):
         valor1 = self.entrada1.get()
         valor2 = self.entrada2.get()
         valor3 = self.entrada3.get()
+        c.Controle(valor1,valor2,valor3)
 
+        
 
         # resultado = f"Valores inseridos: {valor1}, {valor2}, {valor3}"
         # messagebox.showinfo("Resultado", resultado)
-    def getValor1():
-        return valor1
+
         
