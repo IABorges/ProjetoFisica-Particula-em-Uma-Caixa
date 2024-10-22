@@ -29,5 +29,8 @@ class Proton:
 
         return E_n, E_n2, E_nev, E_n2ev
     def velocidade(self,n):
-        
         return np.sqrt((2* self.energia(n))/self.m) 
+    
+    def comprimento_de_broglie(self,n):
+        p = self.m * self.velocidade(n) # momento linear
+        return self.h / p  # comprimento de onda

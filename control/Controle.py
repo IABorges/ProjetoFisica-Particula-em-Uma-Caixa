@@ -21,16 +21,19 @@ class Controle:
             print(f"Função de onda nível {self.n_final}: {proton.funcao_onda(self.n_final)}")
             print(f"Energia do nível {self.n_inicial}: {E_nInicial} J ; {E_nIeV} eV")
             print(f"Energia do nível {self.n_final}: {E_nFinal} J ; {E_nFJeV} eV")
-
+            print("-"*20)
             # Cálculos para o fóton
             foton = Foton(E_nInicial, E_nFinal)
-            print(f"Energia do fóton: {foton.energia_foton()} J : {foton.energia_foton()/ 1.60218e-19 }")
+            print(f"Energia do fóton: {foton.energia_foton()} J : {foton.energia_foton()/ 1.60218e-19 } eV")
             print(f"Comprimento de onda do fóton: {foton.comprimento_onda()} m")
             print(f"Frequência do fóton: {foton.frequencia_foton()} Hz")
-
-            print(f"Velocidade da particula no nivel {self.n_inicial}: {proton.velocidade(self.n_inicial)}")
-            print(f"Velocidade da particula no nivel {self.n_final}: {proton.velocidade(self.n_final)}")
-
-
+            print("-"*100)
+            print(f"Velocidade da particula no nivel {self.n_inicial}: {proton.velocidade(self.n_inicial)} m/s")
+            print(f"Velocidade da particula no nivel {self.n_final}: {proton.velocidade(self.n_final)} m/s")
+            print("-"*100)
+            print(f"Comprimento de Onda de De Broglie da particula no nivel {self.n_inicial}: {proton.comprimento_de_broglie(self.n_inicial)} m ")
+            print(f"Comprimento de Onda de De Broglie da particula no nivel {self.n_final}: {proton.comprimento_de_broglie(self.n_final)} m ")
+            print("-"*100)
+            
         except ValueError as ve:
             print(f"Erro: {ve}")
