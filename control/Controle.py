@@ -1,5 +1,6 @@
 import view.PagCalcProton as calcProton
 from model.Proton import Proton
+from model.Foton import Foton
 class Controle:
     def __init__(self, largura, n_inicial, n_final):
         try:
@@ -21,11 +22,11 @@ class Controle:
             print(f"Energia do nível {self.n_inicial}: {E_nInicial} J ; {E_nIeV} eV")
             print(f"Energia do nível {self.n_final}: {E_nFinal} J ; {E_nFJeV} eV")
 
-            # # Cálculos para o fóton
-            # fotao = Fotao(E_n3, E_n4)
-            # print(f"Energia do fóton: {fotao.energia_foton()} J")
-            # print(f"Comprimento de onda do fóton: {fotao.comprimento_onda()} m")
-            # print(f"Frequência do fóton: {fotao.frequencia_foton()} Hz")
+            # Cálculos para o fóton
+            foton = Foton(E_nInicial, E_nFinal)
+            print(f"Energia do fóton: {foton.energia_foton()} J : {foton.energia_foton()/ 1.60218e-19 }")
+            print(f"Comprimento de onda do fóton: {foton.comprimento_onda()} m")
+            print(f"Frequência do fóton: {foton.frequencia_foton()} Hz")
 
         except ValueError as ve:
             print(f"Erro: {ve}")

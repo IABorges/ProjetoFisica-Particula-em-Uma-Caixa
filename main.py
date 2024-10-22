@@ -44,10 +44,6 @@ class JanelaInicio(tk.Tk):
         calcProton.JanelaCalculoProton(self)
         
 
-
-
-
-
 # Iniciar a aplicação
 if __name__ == "__main__":
     app = JanelaInicio()  # Criar a janela principal
