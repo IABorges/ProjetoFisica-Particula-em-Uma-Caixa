@@ -1,5 +1,5 @@
-import model.Proton as Proton
-
+import view.PagCalcProton as calcProton
+from model.Proton import Proton
 class Controle:
     def __init__(self, largura, n_inicial, n_final):
         try:
@@ -14,12 +14,12 @@ class Controle:
 
             # Instanciar as classes e calcular
             proton = Proton(self.largura, self.n_inicial, self.n_final)
-            E_n3, E_n4 = proton.calcular_energias()
+            E_nInicial, E_nFinal, E_nIeV,E_nFJeV = proton.calcular_energias()
 
             print(f"Função de onda nível {self.n_inicial}: {proton.funcao_onda(self.n_inicial)}")
             print(f"Função de onda nível {self.n_final}: {proton.funcao_onda(self.n_final)}")
-            print(f"Energia do nível {self.n_inicial}: {E_n3} J")
-            print(f"Energia do nível {self.n_final}: {E_n4} J")
+            print(f"Energia do nível {self.n_inicial}: {E_nInicial} J ; {E_nIeV} eV")
+            print(f"Energia do nível {self.n_final}: {E_nFinal} J ; {E_nFJeV} eV")
 
             # # Cálculos para o fóton
             # fotao = Fotao(E_n3, E_n4)

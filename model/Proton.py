@@ -21,6 +21,9 @@ class Proton:
 
     def calcular_energias(self):
         """Calcula as energias dos níveis inicial e final."""
-        E_n3 = self.energia(self.n_inicial)
-        E_n4 = self.energia(self.n_final)
-        return E_n3, E_n4
+        E_n = self.energia(self.n_inicial)
+        E_n2 = self.energia(self.n_final)
+        E_nev= E_n/ self.eV
+        E_n2ev = E_n2/ self.eV
+
+        return E_n, E_n2, E_nev, E_n2ev
