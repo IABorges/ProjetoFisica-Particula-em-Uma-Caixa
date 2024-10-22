@@ -7,6 +7,7 @@ class Proton:
         self.h = 6.62607015e-34  # constante de Planck (J·s)
         self.m = 1.6726219e-27  # massa do próton (kg)
         self.eV = 1.60218e-19  # energia de elétron-volt para joules (J)
+        self.m = 1.67e-27  # massa do próton em kg
 
     def funcao_onda(self, n):
         """Calcula a função de onda para um determinado nível."""
@@ -27,3 +28,6 @@ class Proton:
         E_n2ev = E_n2/ self.eV
 
         return E_n, E_n2, E_nev, E_n2ev
+    def velocidade(self,n):
+        
+        return np.sqrt((2* self.energia(n))/self.m) 
