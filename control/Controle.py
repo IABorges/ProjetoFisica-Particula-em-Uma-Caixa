@@ -1,26 +1,31 @@
-import view.PagCalcProton as calcProton
+import model.Proton as Proton
 
-class Controle():
-
-    def __init__(self,largura,nInicial,nFinal):
-        self.largura = float(largura)
-        self.n_inicial = int(nInicial)
-        self.n_final = int(nFinal)
-
+class Controle:
+    def __init__(self, largura, n_inicial, n_final):
         try:
-        # Verifica se os valores são válidos
-            if self.largura <= 0:
-                raise ValueError("A largura da caixa deve ser um valor positivo.")
-            if self.n_inicial <= 0 or self.n_final <= 0:
-                raise ValueError("Os estados da partícula devem ser maiores que zero.")
+            self.largura = float(largura)
+            self.n_inicial = int(n_inicial)
+            self.n_final = int(n_final)
 
-                # Aqui, você pode fazer o cálculo ou chamar a função que realiza o cálculo
-            #resultado = self.calcular_confinamento(self.largura, self.n_inicial, self.n_final)
-            resultado = self.largura + self.n_final + self.n_inicial
-            print(resultado)
-           # return f"Resultado do cálculo: {resultado}"
+            if self.largura <= 0:
+                raise ValueError("A largura da caixa deve ser positiva.")
+            if self.n_inicial <= 0 or self.n_final <= 0:
+                raise ValueError("Os níveis devem ser maiores que zero.")
+
+            # Instanciar as classes e calcular
+            proton = Proton(self.largura, self.n_inicial, self.n_final)
+            E_n3, E_n4 = proton.calcular_energias()
+
+            print(f"Função de onda nível {self.n_inicial}: {proton.funcao_onda(self.n_inicial)}")
+            print(f"Função de onda nível {self.n_final}: {proton.funcao_onda(self.n_final)}")
+            print(f"Energia do nível {self.n_inicial}: {E_n3} J")
+            print(f"Energia do nível {self.n_final}: {E_n4} J")
+
+            # # Cálculos para o fóton
+            # fotao = Fotao(E_n3, E_n4)
+            # print(f"Energia do fóton: {fotao.energia_foton()} J")
+            # print(f"Comprimento de onda do fóton: {fotao.comprimento_onda()} m")
+            # print(f"Frequência do fóton: {fotao.frequencia_foton()} Hz")
 
         except ValueError as ve:
-            # Retorna uma mensagem de erro se houver problemas com os dados inseridos
-            #return f"Erro de valor: {ve}"
-            print("erro")
+            print(f"Erro: {ve}")
