@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 import view.PagInfo as pInfo
 import view.PagCalcProton as calcProton
+import view.PagCalcEletron as calcEletron
+import view.PagCalcFunc as calcFunc
 
 # Classe para a janela principal
 class JanelaInicio(tk.Tk):
@@ -30,7 +32,7 @@ class JanelaInicio(tk.Tk):
 
         # Botão 1 - Confinar o elétron
         btnBotao1 = tk.Button(frameMain, text="Confinar o elétron", width=button_width, height=button_height,
-                              font=fonte_botao, bg="#007acc", fg="white")
+                              font=fonte_botao, bg="#007acc", fg="white", command=self.abrir_janela_calcEletron)
         btnBotao1.grid(row=1, column=0, padx=20, pady=20, sticky="e")
 
         # Estilo do botão ao passar o mouse
@@ -49,11 +51,20 @@ class JanelaInicio(tk.Tk):
         # Botão para abrir a janela de informações
         btnBotaoInfo = tk.Button(frameMain, text="Informações", width=button_width, height=button_height,
                                  font=fonte_botao, bg="#007acc", fg="white", command=self.abrir_janela_info)
-        btnBotaoInfo.grid(row=2, column=0, columnspan=2, padx=20, pady=20)
+        btnBotaoInfo.grid(row=2, column=0, padx=20, pady=20)
 
         # Estilo do botão ao passar o mouse
         btnBotaoInfo.bind("<Enter>", lambda e: btnBotaoInfo.config(bg="#005f99"))
         btnBotaoInfo.bind("<Leave>", lambda e: btnBotaoInfo.config(bg="#007acc"))
+
+        # Novo Botão - "Tenho uma função de onda"
+        btnFuncaoOnda = tk.Button(frameMain, text="Tenho uma função de onda", width=button_width, height=button_height,
+                                  font=fonte_botao, bg="#007acc", fg="white", command=self.abrir_janela_funcao_onda)
+        btnFuncaoOnda.grid(row=2, column=1, columnspan=2, padx=20, pady=20)
+
+        # Estilo do botão ao passar o mouse
+        btnFuncaoOnda.bind("<Enter>", lambda e: btnFuncaoOnda.config(bg="#005f99"))
+        btnFuncaoOnda.bind("<Leave>", lambda e: btnFuncaoOnda.config(bg="#007acc"))
 
     # Método para abrir a janela de informações
     def abrir_janela_info(self):
@@ -62,6 +73,14 @@ class JanelaInicio(tk.Tk):
     # Método para abrir a janela de cálculo do próton
     def abrir_janela_calcProton(self):
         calcProton.JanelaCalculoProton(self)
+        
+    def abrir_janela_calcEletron(self):
+        print("Em desenvolvimento")
+        calcEletron.JanelaCalculoEletron(self)
+
+    # Método placeholder para o novo botão
+    def abrir_janela_funcao_onda(self):
+        messagebox.showinfo("Função de Onda", "Funcionalidade de Função de Onda será implementada aqui.")
 
 # Iniciar a aplicação
 if __name__ == "__main__":
