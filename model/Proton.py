@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.integrate import quad
+
 class Proton:
     def __init__(self, largura, n_inicial, n_final, ponto1, ponto2):
         self.largura = largura  # largura do poço (em metros)
@@ -37,5 +39,14 @@ class Proton:
         p = self.m * self.velocidade(n) # momento linear
         return self.h / p  # comprimento de onda
     
-    def calc_probabilidade(ponto1,ponto2,n,largura):
-        print("em desenvolvimento")
+    def psi(self,n, x, L):
+        return np.sqrt(2 / L) * np.sin(n * np.pi * x / L)
+
+    def calc_probabilidade(self,n, a, b, L):
+        # Define a função quadrada da função de onda
+        def integrando(x):
+            return np.abs(self.psi(n, x, L))**2
+
+        # Calcula a integral
+        P, erro = quad(integrando, a, b)
+        return P 
