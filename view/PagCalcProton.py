@@ -66,7 +66,7 @@ class JanelaCalculoProton(tk.Toplevel):
         valor3 = self.entrada3.get()
         valor4 = self.entrada4.get()
         valor5 = self.entrada5.get()
-        controle = c.Controle(valor1, valor2, valor3)
+        controle = c.Controle(valor1, valor2, valor3, valor4,valor5)
 
         # Aqui você pode usar os valores inseridos para chamar as funções de cálculo
         # e exibir o resultado usando messagebox.showinfo() ou em um novo widget.

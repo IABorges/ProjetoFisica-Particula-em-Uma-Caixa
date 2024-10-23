@@ -1,9 +1,11 @@
 import numpy as np
 class Proton:
-    def __init__(self, largura, n_inicial, n_final):
+    def __init__(self, largura, n_inicial, n_final, ponto1, ponto2):
         self.largura = largura  # largura do poço (em metros)
         self.n_inicial = n_inicial  # nível inicial
         self.n_final = n_final  # nível final
+        self.pontoInicial = ponto1
+        self.pontoFinal = ponto2
         self.h = 6.62607015e-34  # constante de Planck (J·s)
         self.m = 1.6726219e-27  # massa do próton (kg)
         self.eV = 1.60218e-19  # energia de elétron-volt para joules (J)
@@ -34,3 +36,6 @@ class Proton:
     def comprimento_de_broglie(self,n):
         p = self.m * self.velocidade(n) # momento linear
         return self.h / p  # comprimento de onda
+    
+    def calc_probabilidade(ponto1,ponto2,n,largura):
+        print("em desenvolvimento")

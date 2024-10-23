@@ -2,11 +2,13 @@ import view.PagCalcProton as calcProton
 from model.Proton import Proton
 from model.Foton import Foton
 class Controle:
-    def __init__(self, largura, n_inicial, n_final):
+    def __init__(self, largura, n_inicial, n_final,ponto1,ponto2):
         try:
             self.largura = float(largura)
             self.n_inicial = int(n_inicial)
             self.n_final = int(n_final)
+            self.ponto1 = float(ponto1)
+            self.ponto2 = float(ponto2)
 
             if self.largura <= 0:
                 raise ValueError("A largura da caixa deve ser positiva.")
@@ -34,6 +36,9 @@ class Controle:
             print(f"Comprimento de Onda de De Broglie da particula no nivel {self.n_inicial}: {proton.comprimento_de_broglie(self.n_inicial)} m ")
             print(f"Comprimento de Onda de De Broglie da particula no nivel {self.n_final}: {proton.comprimento_de_broglie(self.n_final)} m ")
             print("-"*100)
+            print(f"integral : {proton.calc_probabilidade(self.ponto1,self.ponto2,self.n_inicial,self.largura)}")
+
+
             
         except ValueError as ve:
             print(f"Erro: {ve}")
