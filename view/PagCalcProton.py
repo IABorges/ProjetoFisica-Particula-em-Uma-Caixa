@@ -59,18 +59,27 @@ class JanelaCalculoProton(tk.Toplevel):
         btnCalcular.bind("<Enter>", lambda e: btnCalcular.config(bg="#005f99"))
         btnCalcular.bind("<Leave>", lambda e: btnCalcular.config(bg="#007acc"))
 
-    # Função para realizar o cálculo e mostrar o resultado
+    
+        # Função para realizar o cálculo e mostrar o resultado
     def calcular_proton(self):
-        valor1 = self.entrada1.get()
-        valor2 = self.entrada2.get()
-        valor3 = self.entrada3.get()
-        valor4 = self.entrada4.get()
-        valor5 = self.entrada5.get()
-        controle = c.Controle(valor1, valor2, valor3, valor4,valor5)
+        try:
+            # Pegar os valores das entradas
+            largura_caixa = float(self.entrada1.get())  # Largura da caixa em nm
+            estado_inicial = int(self.entrada2.get())    # Estado inicial (n)
+            estado_final = int(self.entrada3.get())      # Estado final (n)
+            ponto1 = float(self.entrada4.get()) * 1e-9  # Converter Ponto 1 de nm para metros
+            ponto2 = float(self.entrada5.get()) * 1e-9  # Converter Ponto 2 de nm para metros
 
-        # Aqui você pode usar os valores inseridos para chamar as funções de cálculo
-        # e exibir o resultado usando messagebox.showinfo() ou em um novo widget.
+            # Instanciar a classe Controle, que internamente usa Proton
+            controle = c.Controle(largura_caixa, estado_inicial, estado_final)
 
-        # Exemplo de mensagem de sucesso (ajustar para seu cálculo real):
-        resultado = f"Valores inseridos: {valor1} nm, n inicial: {valor2}, n final: {valor3}"
-        messagebox.showinfo("Resultado", resultado)
+            # Calcular a probabilidade para o intervalo e exibir o resultado
+           
+            for n in range(estado_inicial, estado_final + 1):
+                probabilidadcontrole.calcular_probabilidade(ponto1, ponto2, n)
+                print(f"Probabilidade no nível {n}: {probabilidade:.2f}%")
+
+          
+e = 
+        except ValueError:
+            messagebox.showerror("Erro", "Por favor, insira valores válidos!")
